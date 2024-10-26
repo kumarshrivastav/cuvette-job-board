@@ -33,9 +33,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth/v1", userRouter);
 app.use("/api/auth/v1",jobRouter)
-app.use((req, res, next) => {
-  res.status(404).send({ msg: "Sorry can't find that" });
-});
 app.use(express.static(path.join(__dirname,'/client/dist')))
 app.get("*",(req,res)=>(
   res.sendFile(path.join(__dirname,'client','dist','index.html'))
